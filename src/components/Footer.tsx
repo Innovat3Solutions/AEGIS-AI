@@ -1,51 +1,115 @@
-import { Plus, Github, Twitter, Linkedin, Instagram } from "lucide-react";
+import { Linkedin, Twitter } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export function Footer() {
   return (
-    <footer className="border-t border-brand-border/50 bg-brand-bg pt-20 pb-10 px-6">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-12 mb-20">
-        <div className="flex flex-col gap-6 max-w-sm">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-brand-green flex items-center justify-center">
-              <Plus className="w-5 h-5 text-brand-bg stroke-[3]" />
+    <footer className="bg-[#0a0a0a] border-t border-[#1a1a1a]">
+      {/* Main Footer */}
+      <div>
+        <div className="container-max py-12">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8">
+            {/* Logo & Description */}
+            <div className="md:col-span-2">
+              <a href="/" className="inline-block mb-5">
+                <img
+                  src="/logo.png"
+                  alt="Avenix AI"
+                  className="h-10 w-auto"
+                />
+              </a>
+              <p className="text-zinc-600 text-sm max-w-sm leading-relaxed mb-4">
+                Private AI infrastructure for South Florida businesses. Enterprise capabilities with local, hands-on support.
+              </p>
+              <p className="text-xs text-zinc-700">
+                Based in South Florida
+              </p>
             </div>
-            <span className="text-xl font-semibold tracking-tight">Clandestine</span>
-          </div>
-          <p className="text-brand-text-muted text-sm leading-relaxed">
-            Next-generation AI cybersecurity protecting your data with intelligent threat detection and real-time response.
-          </p>
-        </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-12 md:gap-24">
-          <div className="flex flex-col gap-4">
-            <h4 className="font-semibold mb-2">Product</h4>
-            <a href="#" className="text-brand-text-muted hover:text-white text-sm transition-colors">Features</a>
-            <a href="#" className="text-brand-text-muted hover:text-white text-sm transition-colors">Integrations</a>
-            <a href="#" className="text-brand-text-muted hover:text-white text-sm transition-colors">Pricing</a>
-          </div>
-          <div className="flex flex-col gap-4">
-            <h4 className="font-semibold mb-2">Company</h4>
-            <a href="#" className="text-brand-text-muted hover:text-white text-sm transition-colors">Our team</a>
-            <a href="#" className="text-brand-text-muted hover:text-white text-sm transition-colors">Our values</a>
-            <a href="#" className="text-brand-text-muted hover:text-white text-sm transition-colors">Blog</a>
-          </div>
-          <div className="flex flex-col gap-4">
-            <h4 className="font-semibold mb-2">Resources</h4>
-            <a href="#" className="text-brand-text-muted hover:text-white text-sm transition-colors">Downloads</a>
-            <a href="#" className="text-brand-text-muted hover:text-white text-sm transition-colors">Contact</a>
+            {/* Solutions */}
+            <div>
+              <p className="text-xs text-zinc-600 uppercase tracking-wider mb-4">Solutions</p>
+              <ul className="space-y-3">
+                <li>
+                  <Link to="/solutions/healthcare" className="text-sm text-zinc-500 hover:text-white transition-colors">Healthcare</Link>
+                </li>
+                <li>
+                  <Link to="/solutions/legal" className="text-sm text-zinc-500 hover:text-white transition-colors">Legal</Link>
+                </li>
+                <li>
+                  <Link to="/solutions/financial" className="text-sm text-zinc-500 hover:text-white transition-colors">Financial</Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Company */}
+            <div>
+              <p className="text-xs text-zinc-600 uppercase tracking-wider mb-4">Company</p>
+              <ul className="space-y-3">
+                <li>
+                  <Link to="/get-started" className="text-sm text-zinc-500 hover:text-white transition-colors">How to Get Started</Link>
+                </li>
+                <li>
+                  <Link to="/about" className="text-sm text-zinc-500 hover:text-white transition-colors">About Us</Link>
+                </li>
+                <li>
+                  <a href="#contact" className="text-sm text-zinc-500 hover:text-white transition-colors">Contact</a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto pt-8 border-t border-brand-border/50 flex flex-col md:flex-row justify-between items-center gap-6">
-        <p className="text-brand-text-muted text-sm">
-          Â© 2025 Clandestine. All rights reserved.
-        </p>
-        <div className="flex items-center gap-4 text-brand-text-muted">
-          <a href="#" className="hover:text-white transition-colors"><Github className="w-5 h-5" /></a>
-          <a href="#" className="hover:text-white transition-colors"><Twitter className="w-5 h-5" /></a>
-          <a href="#" className="hover:text-white transition-colors"><Linkedin className="w-5 h-5" /></a>
-          <a href="#" className="hover:text-white transition-colors"><Instagram className="w-5 h-5" /></a>
+      {/* Bottom Bar */}
+      <div className="border-t border-[#1a1a1a]">
+        <div className="container-max py-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-zinc-600 text-xs">
+              © 2026 Avenix AI. All rights reserved.
+            </p>
+
+            <div className="flex items-center gap-4">
+              <a href="#" className="text-zinc-600 hover:text-white transition-colors">
+                <Linkedin className="w-4 h-4" />
+              </a>
+              <a href="#" className="text-zinc-600 hover:text-white transition-colors">
+                <Twitter className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Powered By Section */}
+      <div className="border-t border-[#141414]">
+        <div className="container-max py-8">
+          <div className="flex flex-col items-center gap-4">
+            <p className="text-[10px] text-zinc-700 uppercase tracking-[0.2em]">
+              Powered by South Florida Companies
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-6">
+              <a
+                href="https://innovat3solutions.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 px-4 py-2 rounded-full border border-[#1a1a1a] hover:border-[#262626] bg-[#0a0a0a] transition-all duration-300"
+              >
+                <span className="text-xs font-medium text-zinc-500 group-hover:text-white transition-colors">
+                  INNOVAT3 Solutions
+                </span>
+              </a>
+              <a
+                href="https://noxtechnology.net"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 px-4 py-2 rounded-full border border-[#1a1a1a] hover:border-[#262626] bg-[#0a0a0a] transition-all duration-300"
+              >
+                <span className="text-xs font-medium text-zinc-500 group-hover:text-white transition-colors">
+                  Nox Technology
+                </span>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

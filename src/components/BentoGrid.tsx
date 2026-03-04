@@ -1,144 +1,269 @@
-import { Fingerprint, Headphones, Shield, Zap } from "lucide-react";
+import { Server, Bot, FileText, Database, Shield, Lock, ArrowUpRight, Search, Award } from "lucide-react";
+import { MobileCarousel } from "./MobileCarousel";
 
 export function BentoGrid() {
   return (
-    <section className="py-32 px-6 max-w-7xl mx-auto">
-      <div className="flex flex-col items-center text-center mb-20">
-        <span className="text-xs font-bold tracking-widest text-brand-text-muted uppercase mb-4">Data Security</span>
-        <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6">All your security tools<br/>in one place</h2>
-        <p className="text-brand-text-muted text-lg max-w-2xl">
-          Our app analyzes vulnerabilities and strengthens your defenses,<br/>helping you stay one step ahead of cyber threats.
-        </p>
-      </div>
+    <section id="platform" className="py-24 md:py-32 bg-[#0a0a0a]">
+      <div className="container-max">
+        {/* Section header */}
+        <div className="max-w-3xl mb-16">
+          <p className="text-sm text-brand-green font-medium uppercase tracking-widest mb-4 animate-fade-up">
+            Your Local AI Partner
+          </p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white leading-tight mb-6 animate-fade-up delay-100">
+            Enterprise AI, locally supported
+          </h2>
+          <p className="text-lg text-zinc-500 animate-fade-up delay-200">
+            We bring Fortune 500 AI capabilities to South Florida businesses. Complete private infrastructure with hands-on local support no call centers, no tickets, just real help from your neighbors.
+          </p>
+        </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[200px]">
-        {/* Left Column */}
-        <div className="md:col-span-1 row-span-2 bg-brand-card border border-brand-border rounded-[32px] p-8 flex flex-col relative overflow-hidden group">
-          <div className="absolute inset-0 bg-gradient-to-b from-brand-green/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-          <div className="flex-1 flex items-center justify-center relative">
-            <div className="w-32 h-32 rounded-full bg-brand-green/20 flex items-center justify-center relative shadow-[0_0_40px_rgba(0,208,132,0.3)]">
-              <div className="w-24 h-24 rounded-full bg-brand-green/40 flex items-center justify-center backdrop-blur-md">
-                <span className="text-4xl font-bold text-white">AI</span>
+        {/* Bento Grid - Desktop */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+          {/* Large Card - Local LLM */}
+          <div className="lg:col-span-2 lg:row-span-2 group relative rounded-2xl overflow-hidden animate-fade-up delay-100 card-shine hover:scale-[1.01] transition-transform duration-500">
+            {/* Background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-brand-green/10 via-[#0f0f0f] to-[#0f0f0f] transition-all duration-500 group-hover:from-brand-green/15" />
+            <div className="absolute inset-0 border border-brand-green/20 rounded-2xl group-hover:border-brand-green/30 transition-colors duration-300" />
+
+            {/* Content */}
+            <div className="relative p-8 md:p-10 h-full flex flex-col">
+              <div className="flex items-start justify-between mb-8">
+                <div className="w-14 h-14 rounded-xl bg-brand-green/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Server className="w-7 h-7 text-brand-green" />
+                </div>
+                <ArrowUpRight className="w-5 h-5 text-zinc-600 group-hover:text-brand-green group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
+              </div>
+
+              <div className="flex-1">
+                <h3 className="text-2xl md:text-3xl font-semibold text-white mb-4">
+                  Local LLM Deployment
+                </h3>
+                <p className="text-zinc-400 leading-relaxed mb-8 max-w-lg">
+                  A fully functional LLM running inside your infrastructure. Inject files, folders, and documents then query your data through natural conversation. Everything stays within your network.
+                </p>
+              </div>
+
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2">
+                {["On Premise", "Private Cloud", "Hybrid", "Air-Gapped"].map((tag, i) => (
+                  <span key={i} className="px-3 py-1.5 text-xs text-zinc-500 border border-[#262626] rounded-full bg-[#0a0a0a]">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              {/* Decorative element */}
+              <div className="absolute bottom-0 right-0 w-64 h-64 opacity-50">
+                <div className="absolute inset-0 bg-gradient-to-tl from-brand-green/10 to-transparent rounded-full blur-3xl" />
               </div>
             </div>
           </div>
-          <div className="mt-8 relative z-10">
-            <h3 className="text-2xl font-semibold mb-3">AI for absolute security</h3>
-            <p className="text-brand-text-muted">Our platform utilizes the latest AI algorithms to predict threats.</p>
-          </div>
-        </div>
 
-        {/* Middle Column - Top */}
-        <div className="md:col-span-1 row-span-1 bg-brand-card border border-brand-border rounded-[32px] p-8 flex flex-col justify-center relative overflow-hidden">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="w-12 h-12 rounded-2xl bg-brand-green/20 flex items-center justify-center">
-              <Fingerprint className="w-6 h-6 text-brand-green" />
-            </div>
-            <span className="text-4xl font-bold">100%</span>
-          </div>
-          <h3 className="text-xl font-semibold mb-2">Security Guarantee</h3>
-          <p className="text-brand-text-muted text-sm">AI encryption keeps your data safe.</p>
-        </div>
+          {/* AI Agents */}
+          <BentoCard
+            icon={Bot}
+            title="AI Agent Framework"
+            description="Create AI-powered agents that automate internal tasks research assistants, contract review, documentation."
+            delay="200ms"
+          />
 
-        {/* Right Column - Top */}
-        <div className="md:col-span-1 row-span-1 bg-brand-card border border-brand-border rounded-[32px] p-8 flex flex-col justify-center relative overflow-hidden bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+CjxyZWN0IHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgZmlsbD0ibm9uZSIvPgo8Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSIxIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiLz4KPC9zdmc+')]">
-          <div className="bg-brand-bg/80 backdrop-blur-md border border-brand-border rounded-xl p-4 mb-6 shadow-xl flex items-start gap-3">
-            <div className="w-8 h-8 rounded-lg bg-brand-green/20 flex items-center justify-center shrink-0">
-              <Shield className="w-4 h-4 text-brand-green" />
-            </div>
-            <div>
-              <h4 className="text-sm font-medium text-white mb-1">Potential threat detected!</h4>
-              <p className="text-xs text-brand-text-muted">Please verify your details or update your security settings.</p>
-            </div>
-            <span className="text-[10px] text-brand-text-muted shrink-0">36m ago</span>
-          </div>
-          <h3 className="text-xl font-semibold mb-2">Instant threat alerts</h3>
-          <p className="text-brand-text-muted text-sm">AI detects threats and notifies you immediately to protect your data.</p>
-        </div>
+          {/* Document Processing */}
+          <BentoCard
+            icon={FileText}
+            title="Document Processing"
+            description="Ingest and analyze PDFs, contracts, medical records, financial statements. Documents never leave your network."
+            delay="300ms"
+          />
 
-        {/* Left Column - Bottom */}
-        <div className="md:col-span-1 row-span-1 bg-brand-card border border-brand-border rounded-[32px] p-8 flex flex-col justify-end relative overflow-hidden">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-48 mt-[-20px]">
-            <svg viewBox="0 0 100 50" className="w-full h-full">
-              <path d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="rgba(0,208,132,0.2)" strokeWidth="8" strokeLinecap="round" />
-              <path d="M 10 50 A 40 40 0 0 1 70 20" fill="none" stroke="var(--color-brand-green)" strokeWidth="8" strokeLinecap="round" />
-            </svg>
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center">
-              <span className="text-xs text-brand-text-muted font-medium">km/h</span>
-              <span className="text-4xl font-bold">170</span>
-            </div>
-            <div className="absolute bottom-0 left-4 text-xs text-brand-text-muted">0</div>
-            <div className="absolute bottom-0 right-4 text-xs text-brand-text-muted">240</div>
-          </div>
-          <div className="relative z-10 mt-auto pt-24">
-            <h3 className="text-xl font-semibold mb-2">React faster than hackers</h3>
-            <p className="text-brand-text-muted text-sm">Get alerts on threats and prevent them before they cause damage.</p>
-          </div>
-        </div>
+          {/* Knowledge Base */}
+          <BentoCard
+            icon={Database}
+            title="Private Knowledge Base"
+            description="Train on your internal data company documents, policies, records. Create a private AI assistant."
+            delay="400ms"
+          />
 
-        {/* Middle Column - Middle (Phone) */}
-        <div className="md:col-span-1 row-span-2 bg-brand-card border border-brand-border rounded-[32px] p-8 flex flex-col relative overflow-hidden items-center justify-center">
-          <div className="w-[220px] h-[450px] bg-white rounded-[32px] p-2 shadow-2xl border-4 border-gray-800 relative z-10 scale-90 origin-center">
-            <div className="w-full h-full bg-gray-50 rounded-[24px] overflow-hidden flex flex-col relative">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-5 bg-black rounded-b-2xl z-30"></div>
-              <div className="pt-8 px-4 pb-4 flex justify-between items-center bg-white">
-                <div className="w-5 h-1 bg-gray-300 rounded-full" />
-                <div className="flex gap-2">
-                  <div className="w-4 h-4 rounded-full bg-gray-200" />
-                  <div className="w-5 h-5 rounded-full bg-gray-200" />
+          {/* Security Card - Wide */}
+          <div className="lg:col-span-2 group relative bg-[#0f0f0f] border border-[#262626] rounded-2xl p-8 hover:border-brand-green/30 transition-all duration-300 animate-fade-up delay-500 card-shine">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-[#1a1a1a] flex items-center justify-center group-hover:bg-brand-green/10 group-hover:scale-105 transition-all duration-300">
+                  <Shield className="w-6 h-6 text-brand-green" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-white">Enterprise Security</h3>
+                  <p className="text-sm text-zinc-600">Compliance ready architecture</p>
                 </div>
               </div>
-              <div className="flex-1 px-4 flex flex-col items-center pt-6 bg-white">
-                <div className="relative w-36 h-36 flex items-center justify-center">
-                  <svg className="w-full h-full -rotate-90" viewBox="0 0 100 100">
-                    <circle cx="50" cy="50" r="45" fill="none" stroke="#f3f4f6" strokeWidth="8" strokeDasharray="282" strokeDashoffset="100" />
-                    <circle cx="50" cy="50" r="45" fill="none" stroke="var(--color-brand-green)" strokeWidth="8" strokeDasharray="282" strokeDashoffset="50" strokeLinecap="round" />
-                  </svg>
-                  <div className="absolute flex flex-col items-center">
-                    <span className="text-[10px] text-gray-400 uppercase font-semibold">Score</span>
-                    <span className="text-3xl font-bold text-gray-900">80.9</span>
+
+              <div className="flex flex-wrap gap-3">
+                {[
+                  { icon: Lock, label: "Data Encryption" },
+                  { icon: Lock, label: "Network Isolation" },
+                  { icon: Lock, label: "Access Control" },
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-2 px-4 py-2 bg-[#0a0a0a] rounded-full border border-[#262626]">
+                    <item.icon className="w-3.5 h-3.5 text-brand-green" />
+                    <span className="text-xs text-zinc-500">{item.label}</span>
                   </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        {/* Bento Grid - Mobile Carousel */}
+        <div className="md:hidden">
+          <MobileCarousel>
+            {[
+              <MobileBentoCard
+                icon={Server}
+                title="Local LLM Deployment"
+                description="A fully functional LLM running inside your infrastructure. Inject files, folders, and documents then query your data through natural conversation."
+                tags={["On Premise", "Private Cloud", "Hybrid"]}
+                featured
+              />,
+              <MobileBentoCard
+                icon={Bot}
+                title="AI Agent Framework"
+                description="Create AI-powered agents that automate internal tasks research assistants, contract review, documentation."
+              />,
+              <MobileBentoCard
+                icon={FileText}
+                title="Document Processing"
+                description="Ingest and analyze PDFs, contracts, medical records, financial statements. Documents never leave your network."
+              />,
+              <MobileBentoCard
+                icon={Database}
+                title="Private Knowledge Base"
+                description="Train on your internal data company documents, policies, records. Create a private AI assistant."
+              />,
+              <MobileBentoCard
+                icon={Shield}
+                title="Enterprise Security"
+                description="Compliance ready architecture with data encryption, network isolation, and access control."
+                tags={["Encryption", "Isolation", "Access Control"]}
+              />
+            ]}
+          </MobileCarousel>
+        </div>
+
+        {/* Optional Services */}
+        <div className="mt-16">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#262626] to-transparent" />
+            <span className="text-xs text-zinc-600 uppercase tracking-widest">Optional Add ons</span>
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#262626] to-transparent" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Network Audit */}
+            <div className="group relative flex items-start gap-5 p-6 rounded-xl bg-[#0f0f0f]/50 border border-[#1a1a1a] hover:border-brand-green/20 hover:bg-[#0f0f0f] transition-all duration-300 animate-fade-up delay-[600ms]">
+              <div className="w-12 h-12 rounded-lg bg-[#1a1a1a] flex items-center justify-center shrink-0 group-hover:bg-brand-green/10 group-hover:scale-110 transition-all duration-300">
+                <Search className="w-5 h-5 text-zinc-600 group-hover:text-brand-green transition-colors duration-300" />
+              </div>
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-2">
+                  <h3 className="text-base font-semibold text-white">Network Audit</h3>
+                  <span className="text-[10px] text-brand-green px-2 py-0.5 rounded bg-brand-green/10 border border-brand-green/20">Optional</span>
                 </div>
-                <div className="w-full mt-6">
-                  <div className="flex justify-between items-center mb-3">
-                    <h3 className="text-gray-900 font-semibold text-sm">Data security</h3>
-                    <span className="text-[10px] text-gray-400">Details</span>
-                  </div>
-                  <div className="h-16 bg-gray-50 rounded-xl w-full" />
+                <p className="text-sm text-zinc-500 leading-relaxed">
+                  We audit your cloud or local network to ensure there are no existing compromises prior to deployment.
+                </p>
+              </div>
+            </div>
+
+            {/* WISP Certification */}
+            <div className="group relative flex items-start gap-5 p-6 rounded-xl bg-[#0f0f0f]/50 border border-[#1a1a1a] hover:border-brand-green/20 hover:bg-[#0f0f0f] transition-all duration-300 animate-fade-up delay-[700ms]">
+              <div className="w-12 h-12 rounded-lg bg-[#1a1a1a] flex items-center justify-center shrink-0 group-hover:bg-brand-green/10 group-hover:scale-110 transition-all duration-300">
+                <Award className="w-5 h-5 text-zinc-600 group-hover:text-brand-green transition-colors duration-300" />
+              </div>
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-2">
+                  <h3 className="text-base font-semibold text-white">WISP Certification</h3>
+                  <span className="text-[10px] text-emerald-400 px-2 py-0.5 rounded bg-emerald-400/10 border border-emerald-400/20">Certification</span>
+                  <span className="text-[10px] text-brand-green px-2 py-0.5 rounded bg-brand-green/10 border border-brand-green/20">Optional</span>
                 </div>
+                <p className="text-sm text-zinc-500 leading-relaxed">
+                  We'll help you get WISP Certified a formalized document detailing your organization's security controls, policies, and procedures.
+                </p>
               </div>
             </div>
           </div>
         </div>
-
-        {/* Right Column - Bottom */}
-        <div className="md:col-span-1 row-span-2 bg-brand-card border border-brand-border rounded-[32px] p-8 flex flex-col relative overflow-hidden group">
-          <div className="absolute inset-0 bg-gradient-to-b from-brand-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-          <div className="flex-1 flex items-center justify-center relative">
-            <div className="w-32 h-40 rounded-full bg-brand-green/10 flex items-center justify-center relative shadow-[0_0_60px_rgba(0,208,132,0.2)]">
-              <div className="absolute inset-0 rounded-full border border-brand-green/30 blur-[2px]" />
-              <Shield className="w-16 h-16 text-brand-green" />
-            </div>
-          </div>
-          <div className="mt-8 relative z-10">
-            <h3 className="text-2xl font-semibold mb-3">Military-grade encryption</h3>
-            <p className="text-brand-text-muted">Your data is protected by technology that meets global security standards.</p>
-          </div>
-        </div>
-
-        {/* Middle Column - Bottom */}
-        <div className="md:col-span-1 row-span-1 bg-brand-card border border-brand-border rounded-[32px] p-8 flex flex-col justify-center relative overflow-hidden">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="w-12 h-12 rounded-2xl bg-brand-green/20 flex items-center justify-center">
-              <Headphones className="w-6 h-6 text-brand-green" />
-            </div>
-            <span className="text-4xl font-bold">24/7</span>
-          </div>
-          <h3 className="text-xl font-semibold mb-2">Real-time monitoring</h3>
-          <p className="text-brand-text-muted text-sm">Track activity and get security analytics 24/7.</p>
-        </div>
-
       </div>
     </section>
+  );
+}
+
+function BentoCard({
+  icon: Icon,
+  title,
+  description,
+  delay,
+}: {
+  icon: typeof Server;
+  title: string;
+  description: string;
+  delay: string;
+}) {
+  return (
+    <div
+      className="group relative bg-[#0f0f0f] border border-[#262626] rounded-2xl p-6 hover:border-brand-green/30 transition-all duration-300 animate-fade-up card-glow card-shine"
+      style={{ animationDelay: delay }}
+    >
+      <div className="flex items-start justify-between mb-5">
+        <div className="w-11 h-11 rounded-xl bg-[#1a1a1a] flex items-center justify-center group-hover:bg-brand-green/10 group-hover:scale-110 transition-all duration-300">
+          <Icon className="w-5 h-5 text-zinc-600 group-hover:text-brand-green transition-colors duration-300" />
+        </div>
+        <ArrowUpRight className="w-4 h-4 text-zinc-700 group-hover:text-brand-green group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
+      </div>
+
+      <h3 className="text-base font-semibold text-white mb-2 group-hover:text-brand-green/90 transition-colors duration-300">{title}</h3>
+      <p className="text-sm text-zinc-600 leading-relaxed">{description}</p>
+    </div>
+  );
+}
+
+function MobileBentoCard({
+  icon: Icon,
+  title,
+  description,
+  tags,
+  featured,
+}: {
+  icon: typeof Server;
+  title: string;
+  description: string;
+  tags?: string[];
+  featured?: boolean;
+}) {
+  return (
+    <div className={`relative rounded-2xl overflow-hidden h-full ${featured ? "bg-gradient-to-br from-brand-green/10 via-[#0f0f0f] to-[#0f0f0f] border border-brand-green/20" : "bg-[#0f0f0f] border border-[#262626]"}`}>
+      <div className="p-6 h-full flex flex-col">
+        <div className="flex items-start justify-between mb-5">
+          <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${featured ? "bg-brand-green/20" : "bg-[#1a1a1a]"}`}>
+            <Icon className={`w-6 h-6 ${featured ? "text-brand-green" : "text-zinc-500"}`} />
+          </div>
+          <ArrowUpRight className="w-4 h-4 text-zinc-600" />
+        </div>
+
+        <h3 className="text-lg font-semibold text-white mb-3">{title}</h3>
+        <p className="text-sm text-zinc-500 leading-relaxed mb-4 flex-1">{description}</p>
+
+        {tags && (
+          <div className="flex flex-wrap gap-2 mt-auto">
+            {tags.map((tag, i) => (
+              <span key={i} className="px-3 py-1 text-xs text-zinc-500 border border-[#262626] rounded-full bg-[#0a0a0a]">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
   );
 }

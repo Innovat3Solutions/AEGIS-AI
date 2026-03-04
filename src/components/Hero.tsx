@@ -1,168 +1,280 @@
-import { ArrowUpRight, Bell, MoreVertical, ShieldAlert, ShieldCheck } from "lucide-react";
+import { ArrowRight, Stethoscope, Scale, Landmark } from "lucide-react";
+import { Link } from "react-router-dom";
+import { MobileCarousel } from "./MobileCarousel";
 
 export function Hero() {
   return (
-    <section className="relative pt-24 pb-32 overflow-hidden flex flex-col items-center text-center px-4">
-      {/* Background Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-brand-green/20 rounded-full blur-[120px] -z-10 pointer-events-none" />
-      
-      {/* Circuit lines background (simplified with CSS) */}
-      <div className="absolute inset-0 opacity-10 -z-10" style={{
-        backgroundImage: `radial-gradient(circle at center, transparent 0%, var(--color-brand-bg) 70%), linear-gradient(to right, var(--color-brand-green) 1px, transparent 1px), linear-gradient(to bottom, var(--color-brand-green) 1px, transparent 1px)`,
-        backgroundSize: `100% 100%, 40px 40px, 40px 40px`
-      }} />
+    <section className="relative pt-32 md:pt-40 pb-20 overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute inset-0 -z-10">
+        {/* Gradient orbs */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-brand-green/10 rounded-full blur-[150px]" />
+        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-emerald-500/5 rounded-full blur-[100px]" />
 
-      <h1 className="text-5xl md:text-7xl font-semibold tracking-tight max-w-4xl mx-auto leading-tight mb-6">
-        Protect your data with <br className="hidden md:block" />
-        <span className="text-brand-text-muted">next-generation AI</span>
-      </h1>
-      
-      <p className="text-brand-text-muted text-lg max-w-2xl mx-auto mb-10">
-        Our AI-powered cybersecurity system identifies and neutralizes threats in real time, protecting personal and corporate data.
-      </p>
+        {/* Grid pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `linear-gradient(to right, #262626 1px, transparent 1px), linear-gradient(to bottom, #262626 1px, transparent 1px)`,
+            backgroundSize: '60px 60px'
+          }}
+        />
 
-      <button className="px-8 py-3 rounded-full bg-brand-green text-brand-bg font-semibold hover:bg-brand-green/90 transition-colors shadow-[0_0_20px_rgba(0,208,132,0.4)] mb-24">
-        Launch app
-      </button>
+        {/* Decorative corner curves */}
+        <svg className="absolute top-20 right-0 w-[400px] h-[400px] text-brand-green/10" viewBox="0 0 400 400" fill="none">
+          <path d="M400 0C400 220.914 220.914 400 0 400" stroke="currentColor" strokeWidth="1" />
+        </svg>
+        <svg className="absolute bottom-0 left-0 w-[300px] h-[300px] text-brand-green/10" viewBox="0 0 300 300" fill="none">
+          <path d="M0 300C0 134.315 134.315 0 300 0" stroke="currentColor" strokeWidth="1" />
+        </svg>
+      </div>
 
-      {/* Visual Centerpiece */}
-      <div className="relative w-full max-w-5xl mx-auto h-[500px] flex justify-center items-center">
-        
-        {/* Central Phone Mockup */}
-        <div className="relative z-20 w-[280px] h-[580px] bg-white rounded-[40px] p-2 shadow-2xl border-4 border-gray-800">
-          <div className="w-full h-full bg-gray-50 rounded-[32px] overflow-hidden flex flex-col relative">
-            {/* Notch */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-black rounded-b-3xl z-30"></div>
-            
-            {/* Phone Header */}
-            <div className="pt-10 px-6 pb-4 flex justify-between items-center bg-white">
-              <div className="w-6 h-1 bg-gray-300 rounded-full" />
-              <div className="flex gap-3">
-                <Bell className="w-5 h-5 text-gray-400" />
-                <div className="w-6 h-6 rounded-full bg-gray-200" />
+      <div className="container-max">
+        {/* Main Hero Content - Centered */}
+        <div className="text-center max-w-4xl mx-auto">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#262626] bg-[#141414] mb-8 animate-fade-up">
+            <span className="w-2 h-2 rounded-full bg-brand-green animate-pulse" />
+            <span className="text-sm text-zinc-400">Serving South Florida Businesses</span>
+          </div>
+
+          {/* Headline */}
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight mb-6 animate-fade-up delay-100">
+            <span className="text-white">Private AI for</span>
+            <br />
+            <span className="text-gradient">Local Businesses</span>
+          </h1>
+
+          {/* Subheadline */}
+          <p className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-up delay-200">
+            We deploy a private LLM directly into your network. Feed it your files, documents, and data then chat with it securely. Local support from a South Florida team. Nothing ever leaves your infrastructure.
+          </p>
+
+          {/* Feature pills */}
+          <div className="flex flex-wrap items-center justify-center gap-3 mb-12 animate-fade-up delay-300">
+            {["On Premise Deploy", "HIPAA Compliant", "Zero Data Transmission", "SOC 2 Ready"].map((feature, i) => (
+              <span
+                key={i}
+                className="px-4 py-2 text-sm text-zinc-500 border border-[#262626] rounded-full bg-[#0a0a0a]"
+              >
+                {feature}
+              </span>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <div className="flex items-center justify-center mb-20 animate-fade-up delay-400">
+            <button className="btn-primary text-base px-10 py-4">
+              Schedule Demo
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+
+        {/* Dashboard Preview - Legal Chat Interface */}
+        <div className="relative max-w-3xl mx-auto animate-fade-up delay-500">
+          {/* Glow effect */}
+          <div className="absolute -inset-4 bg-gradient-to-t from-brand-green/20 via-brand-green/5 to-transparent rounded-3xl blur-2xl" />
+
+          {/* Corner markers */}
+          <div className="absolute -top-px -left-px w-6 h-6 border-t border-l border-brand-green/50" />
+          <div className="absolute -top-px -right-px w-6 h-6 border-t border-r border-brand-green/50" />
+          <div className="absolute -bottom-px -left-px w-6 h-6 border-b border-l border-brand-green/50" />
+          <div className="absolute -bottom-px -right-px w-6 h-6 border-b border-r border-brand-green/50" />
+
+          {/* Application UI */}
+          <div className="relative bg-[#0f0f0f] rounded-2xl border border-[#262626] overflow-hidden flex flex-col shadow-2xl">
+            {/* Browser chrome */}
+            <div className="flex items-center gap-3 px-5 py-4 bg-[#141414] border-b border-[#262626]">
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
+                <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
+                <div className="w-3 h-3 rounded-full bg-[#28c840]" />
+              </div>
+              <div className="flex-1 flex justify-center">
+                <div className="flex items-center gap-2 px-4 py-1.5 rounded-md bg-[#0a0a0a] border border-[#262626]">
+                  <span className="text-xs text-zinc-400 font-medium">Avenix Workspace Case 1234</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] text-brand-green px-2 py-0.5 rounded bg-brand-green/10 border border-brand-green/20">Privileged</span>
               </div>
             </div>
 
-            {/* Phone Content */}
-            <div className="flex-1 px-6 flex flex-col items-center pt-8 bg-white">
-              <div className="relative w-48 h-48 flex items-center justify-center">
-                {/* Circular Progress */}
-                <svg className="w-full h-full -rotate-90" viewBox="0 0 100 100">
-                  <circle cx="50" cy="50" r="45" fill="none" stroke="#f3f4f6" strokeWidth="8" strokeDasharray="282" strokeDashoffset="100" className="opacity-50" />
-                  <circle cx="50" cy="50" r="45" fill="none" stroke="var(--color-brand-green)" strokeWidth="8" strokeDasharray="282" strokeDashoffset="50" strokeLinecap="round" />
-                </svg>
-                <div className="absolute flex flex-col items-center">
-                  <span className="text-xs text-gray-400 uppercase tracking-wider font-semibold">Score</span>
-                  <span className="text-4xl font-bold text-gray-900">80.9<span className="text-brand-green text-lg">â</span></span>
-                  <span className="text-[10px] text-gray-400 mt-1">Last update: 30s ago</span>
-                </div>
-              </div>
+            {/* Chat Area */}
+            <div className="p-6 md:p-8 flex flex-col gap-8 bg-[#0a0a0a]">
 
-              <div className="w-full mt-8">
-                <div className="flex justify-between items-center mb-4">
-                  <h3 className="text-gray-900 font-semibold">Data security</h3>
-                  <span className="text-xs text-gray-400">Details</span>
+              {/* User Message */}
+              <div className="flex gap-4">
+                <div className="w-8 h-8 rounded-full bg-[#1a1a1a] border border-[#333] flex items-center justify-center shrink-0 shadow-inner">
+                  <span className="text-xs font-semibold text-zinc-300">You</span>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-gray-50 p-3 rounded-xl">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-xs text-gray-500">New<br/>detections</span>
-                      <ArrowUpRight className="w-4 h-4 text-gray-400" />
-                    </div>
-                    <span className="text-2xl font-bold text-gray-900">136</span>
+                <div className="flex-1">
+                  <div className="bg-[#141414] border border-[#262626] rounded-2xl rounded-tl-none p-4 md:p-5 inline-block">
+                    <p className="text-sm md:text-base text-zinc-300 leading-relaxed">
+                      Hey I want you to go through all my documents in this case pertaining to case 1234 and pull any information that I need to know for a motion that I am drafting.
+                    </p>
                   </div>
-                  <div className="bg-gray-50 p-3 rounded-xl">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-xs text-gray-500">Prevented<br/>attacks</span>
-                      <ArrowUpRight className="w-4 h-4 text-gray-400" />
+                </div>
+              </div>
+
+              {/* AI Agent Analysis & Response */}
+              <div className="flex gap-4">
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-green to-emerald-600 flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(34,197,94,0.4)]">
+                  <span className="text-[#0a0a0a] text-xs font-bold">AI</span>
+                </div>
+                <div className="flex-1 flex flex-col gap-4">
+                  {/* Status Indicator */}
+                  <div className="flex items-center gap-2 text-xs font-medium text-brand-green">
+                    <div className="flex gap-1">
+                      <span className="w-1 h-1 bg-brand-green rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
+                      <span className="w-1 h-1 bg-brand-green rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
+                      <span className="w-1 h-1 bg-brand-green rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
                     </div>
-                    <span className="text-2xl font-bold text-gray-900">32</span>
+                    <span>Analyzing 342 documents for Case 1234...</span>
+                  </div>
+
+                  {/* Response bubble */}
+                  <div className="bg-[#141414] border border-brand-green/20 rounded-2xl rounded-tl-none p-5 shadow-lg relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-brand-green/5 blur-3xl -z-10 rounded-full" />
+
+                    <p className="text-sm md:text-base text-zinc-200 leading-relaxed mb-5">
+                      In the files here are attachments that are associated with your motion and here's the information associated with it:
+                    </p>
+
+                    <ul className="space-y-3">
+                      <li className="flex gap-3 text-sm text-zinc-400 leading-relaxed">
+                        <span className="text-brand-green mt-0.5">✓</span>
+                        Identified 4 key precedents within the local court documents that support the defense motion.
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
             </div>
-            
-            {/* Fade out bottom of phone */}
-            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-brand-bg to-transparent z-40 pointer-events-none" />
           </div>
         </div>
 
-        {/* Floating Cards */}
-        
-        {/* Top Left: Prevented Attacks */}
-        <div className="absolute top-10 left-0 md:left-[10%] z-10 bg-brand-card border border-brand-border rounded-2xl p-5 w-64 shadow-2xl backdrop-blur-sm">
-          <div className="flex justify-between items-start mb-4">
-            <span className="text-brand-text-muted font-medium">Prevented<br/>attacks</span>
-            <ArrowUpRight className="w-5 h-5 text-brand-text-muted" />
+        {/* Industries Section */}
+        <div className="mt-32">
+          <div className="text-center mb-16">
+            <p className="text-sm text-brand-green font-medium uppercase tracking-widest mb-4 animate-fade-up">
+              Built for South Florida
+            </p>
+            <h2 className="text-3xl md:text-4xl font-semibold text-white animate-fade-up delay-100">
+              Enterprise AI for Local Businesses
+            </h2>
+            <p className="text-zinc-500 mt-4 max-w-xl mx-auto animate-fade-up delay-200">
+              Giving small and medium-sized businesses the same AI capabilities as Fortune 500 companies with local support you can trust.
+            </p>
           </div>
-          <div className="flex items-end gap-3">
-            <span className="text-5xl font-semibold text-white">172</span>
-            <span className="px-2 py-1 rounded-full bg-brand-green/20 text-brand-green text-xs font-medium mb-1">+11.5%</span>
+
+          {/* Desktop grid */}
+          <div className="hidden md:grid md:grid-cols-3 gap-6">
+            <IndustryCard
+              icon={Stethoscope}
+              title="Healthcare"
+              description="HIPAA compliant AI for patient records, clinical documentation, and medical research."
+              features={["Patient Record Analysis", "Clinical Documentation", "Medical Research"]}
+              delay="200ms"
+              link="/solutions/healthcare"
+            />
+            <IndustryCard
+              icon={Scale}
+              title="Legal"
+              description="Attorney client privilege protection for case research, contracts, and legal analysis."
+              features={["Case Research", "Contract Review", "Legal Documentation"]}
+              delay="300ms"
+              link="/solutions/legal"
+            />
+            <IndustryCard
+              icon={Landmark}
+              title="Financial"
+              description="GLBA & FTC Safeguards compliant for wealth management and financial analysis."
+              features={["Wealth Management", "Tax Planning", "Financial Analysis"]}
+              delay="400ms"
+              link="/solutions/financial"
+            />
+          </div>
+
+          {/* Mobile carousel */}
+          <div className="md:hidden">
+            <MobileCarousel>
+              {[
+                <IndustryCard
+                  icon={Stethoscope}
+                  title="Healthcare"
+                  description="HIPAA compliant AI for patient records, clinical documentation, and medical research."
+                  features={["Patient Record Analysis", "Clinical Documentation", "Medical Research"]}
+                  delay="0ms"
+                  link="/solutions/healthcare"
+                />,
+                <IndustryCard
+                  icon={Scale}
+                  title="Legal"
+                  description="Attorney client privilege protection for case research, contracts, and legal analysis."
+                  features={["Case Research", "Contract Review", "Legal Documentation"]}
+                  delay="0ms"
+                  link="/solutions/legal"
+                />,
+                <IndustryCard
+                  icon={Landmark}
+                  title="Financial"
+                  description="GLBA & FTC Safeguards compliant for wealth management and financial analysis."
+                  features={["Wealth Management", "Tax Planning", "Financial Analysis"]}
+                  delay="0ms"
+                  link="/solutions/financial"
+                />
+              ]}
+            </MobileCarousel>
           </div>
         </div>
-
-        {/* Bottom Left: Alerts Chart */}
-        <div className="absolute bottom-20 left-4 md:left-[15%] z-10 bg-brand-card border border-brand-border rounded-2xl p-5 w-64 shadow-2xl backdrop-blur-sm">
-          <div className="flex justify-between items-start mb-6">
-            <span className="text-white font-medium">Alerts</span>
-            <ArrowUpRight className="w-5 h-5 text-brand-text-muted" />
-          </div>
-          <div className="flex items-end gap-2 h-16 mb-2">
-            <div className="w-1/3 bg-brand-green rounded-t-sm h-full relative group">
-              <div className="absolute -top-6 left-1/2 -translate-x-1/2 text-xs text-brand-text-muted opacity-0 group-hover:opacity-100 transition-opacity">Critical</div>
-            </div>
-            <div className="w-1/3 bg-brand-green/50 rounded-t-sm h-2/3 relative group">
-              <div className="absolute -top-6 left-1/2 -translate-x-1/2 text-xs text-brand-text-muted opacity-0 group-hover:opacity-100 transition-opacity">High</div>
-            </div>
-            <div className="w-1/3 bg-brand-green/20 rounded-t-sm h-1/3 relative group">
-              <div className="absolute -top-6 left-1/2 -translate-x-1/2 text-xs text-brand-text-muted opacity-0 group-hover:opacity-100 transition-opacity">Low</div>
-            </div>
-          </div>
-          <div className="flex justify-between text-xs text-brand-text-muted">
-            <span>â 45%</span>
-            <span>â 33%</span>
-            <span>â 22%</span>
-          </div>
-        </div>
-
-        {/* Top Right: Top 3 Alerts */}
-        <div className="absolute top-4 right-0 md:right-[10%] z-10 bg-brand-card border border-brand-border rounded-2xl p-5 w-72 shadow-2xl backdrop-blur-sm">
-          <div className="flex justify-between items-center mb-4">
-            <span className="text-white font-medium">Top 3 Alerts</span>
-            <MoreVertical className="w-5 h-5 text-brand-text-muted" />
-          </div>
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <div className="w-2 h-2 rounded-full bg-red-500" />
-              <span className="text-xs text-brand-text-muted w-12">Critical</span>
-              <span className="text-sm text-white">Multi-stage attack</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <div className="w-2 h-2 rounded-full bg-orange-500" />
-              <span className="text-xs text-brand-text-muted w-12">High</span>
-              <span className="text-sm text-white">Phishing Emails</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <div className="w-2 h-2 rounded-full bg-orange-500" />
-              <span className="text-xs text-brand-text-muted w-12">High</span>
-              <span className="text-sm text-white">API abuse for data theft</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Right: Remediated detections */}
-        <div className="absolute bottom-32 right-4 md:right-[15%] z-10 bg-brand-card border border-brand-border rounded-2xl p-5 w-64 shadow-2xl backdrop-blur-sm">
-          <div className="flex justify-between items-start mb-4">
-            <span className="text-white font-medium">Remediated<br/>detections</span>
-            <ArrowUpRight className="w-5 h-5 text-brand-text-muted" />
-          </div>
-          <div className="flex items-end gap-3">
-            <span className="text-5xl font-semibold text-brand-green">73</span>
-            <span className="px-2 py-1 rounded-full bg-brand-border text-white text-xs font-medium mb-1">+10.7%</span>
-          </div>
-        </div>
-
       </div>
     </section>
+  );
+}
+
+function IndustryCard({
+  icon: Icon,
+  title,
+  description,
+  features,
+  delay,
+  link,
+}: {
+  icon: typeof Stethoscope;
+  title: string;
+  description: string;
+  features: string[];
+  delay: string;
+  link: string;
+}) {
+  return (
+    <div
+      className="group p-8 rounded-2xl bg-[#0f0f0f] border border-[#262626] hover:border-brand-green/30 transition-all duration-300 animate-fade-up card-glow card-shine"
+      style={{ animationDelay: delay }}
+    >
+      {/* Icon */}
+      <div className="w-14 h-14 rounded-xl bg-brand-green/10 border border-brand-green/20 flex items-center justify-center mb-6 group-hover:bg-brand-green/20 group-hover:scale-110 group-hover:border-brand-green/40 transition-all duration-300">
+        <Icon className="w-7 h-7 text-brand-green" strokeWidth={1.5} />
+      </div>
+
+      <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-brand-green/90 transition-colors duration-300">{title}</h3>
+      <p className="text-zinc-500 text-sm leading-relaxed mb-6">{description}</p>
+
+      <ul className="space-y-2">
+        {features.map((feature, i) => (
+          <li key={i} className="flex items-center gap-2 text-sm text-zinc-400">
+            <span className="w-1.5 h-1.5 rounded-full bg-brand-green group-hover:scale-125 transition-transform duration-300" />
+            {feature}
+          </li>
+        ))}
+      </ul>
+
+      <Link to={link} className="inline-flex items-center gap-2 mt-6 text-sm font-medium text-brand-green group-hover:gap-3 transition-all duration-300">
+        Learn more
+        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+      </Link>
+    </div>
   );
 }
