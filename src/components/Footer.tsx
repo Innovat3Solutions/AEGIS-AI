@@ -108,6 +108,16 @@ export function Footer() {
                   Nox Technology
                 </span>
               </a>
+              <a
+                href="https://wolftechitsolutions.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 px-4 py-2 rounded-full border border-[#1a1a1a] hover:border-[#262626] bg-[#0a0a0a] transition-all duration-300"
+              >
+                <span className="text-xs font-medium text-zinc-500 group-hover:text-white transition-colors">
+                  Wolf Tech IT Solutions
+                </span>
+              </a>
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import { Shield, Lock, Network, Building2 } from "lucide-react";
+import { Shield, Lock, Network, Building2, ShieldCheck } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export function About() {
@@ -20,7 +20,7 @@ export function About() {
                         </h1>
 
                         <p className="text-lg md:text-xl text-zinc-400 leading-relaxed animate-fade-up delay-200">
-                            Avenix AI is the result of a powerful collaboration between <strong className="text-white">INNOVAT3 Solutions</strong> and <strong className="text-white">Nox Technology</strong>. We saw a critical gap in the market and united our expertise to build next generation private Large Language Models directly within your network.
+                            Avenix AI is the result of a powerful collaboration between <strong className="text-white">INNOVAT3 Solutions</strong>, <strong className="text-white">Nox Technology</strong>, and <strong className="text-white">Wolf Tech IT Solutions</strong>. We saw a critical gap in the market and united our expertise to build next generation private Large Language Models directly within your network—with bulletproof cybersecurity and compliance baked in.
                         </p>
                     </div>
                 </div>
@@ -87,7 +87,7 @@ export function About() {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {/* Innovat3 Solutions */}
                         <div className="p-10 rounded-2xl bg-[#0a0a0a] border border-[#1a1a1a] hover:border-[#262626] transition-all flex flex-col items-center text-center group">
                             <div className="w-16 h-16 rounded-2xl bg-zinc-900 border border-[#262626] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
@@ -123,6 +123,25 @@ export function About() {
                                 className="text-sm font-medium text-brand-green hover:text-white transition-colors mt-auto"
                             >
                                 Visit Nox Technology &rarr;
+                            </a>
+                        </div>
+
+                        {/* Wolf Tech IT Solutions */}
+                        <div className="p-10 rounded-2xl bg-[#0a0a0a] border border-[#1a1a1a] hover:border-[#262626] transition-all flex flex-col items-center text-center group">
+                            <div className="w-16 h-16 rounded-2xl bg-zinc-900 border border-[#262626] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                <ShieldCheck className="w-8 h-8 text-zinc-400 group-hover:text-white transition-colors" />
+                            </div>
+                            <h3 className="text-2xl font-semibold text-white mb-4">Wolf Tech IT Solutions</h3>
+                            <p className="text-zinc-500 leading-relaxed mb-8">
+                                Cybersecurity specialists with 25+ years of industry expertise. Wolf Tech provides comprehensive security audits, WISP certification, and compliance management to ensure your AI infrastructure meets all regulatory requirements.
+                            </p>
+                            <a
+                                href="https://wolftechitsolutions.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-sm font-medium text-brand-green hover:text-white transition-colors mt-auto"
+                            >
+                                Visit Wolf Tech IT Solutions &rarr;
                             </a>
                         </div>
                     </div>
